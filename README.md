@@ -1,30 +1,108 @@
-# Time depth plot
+# Planned vs Actual Time–Depth Plot (FE-2)
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+## 📌 Overview
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/jubrilakes-projects/v0-time-depth-plot)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/b59uI9E2I3S)
+This task focuses on visualizing **planned vs actual drilling progress** over time using a **time–depth plot**. The chart compares expected depth milestones against real execution data, making it easy to identify delays, deviations, and performance gaps.
 
-## Overview
+The emphasis is on **accurate data mapping**, **clear visual comparison**, and **readable chart design**.
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+---
 
-## Deployment
+## 🎯 Problem Statement
 
-Your project is live at:
+Plot **planned vs actual depth vs time** using the following dataset:
 
-**[https://vercel.com/jubrilakes-projects/v0-time-depth-plot](https://vercel.com/jubrilakes-projects/v0-time-depth-plot)**
+```json
+{
+  "planned": { "days": [0, 5, 10, 15], "depth": [0, 2000, 5000, 8360] },
+  "actual": { "days": [0, 6, 12, 18], "depth": [0, 1800, 4800, 8100] }
+}
+```
 
-## Build your app
+---
 
-Continue building your app on:
+## 📊 Visualization Approach
 
-**[https://v0.app/chat/b59uI9E2I3S](https://v0.app/chat/b59uI9E2I3S)**
+### Chart Type
 
-## How It Works
+* **Line chart**
+* X-axis: Time (Days)
+* Y-axis: Depth
+* Two distinct series:
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+  * Planned depth
+  * Actual depth
+
+### Design Considerations
+
+* Clearly labeled axes and legend
+* Distinct line styles or markers for planned vs actual
+* Gridlines to improve readability
+* Tooltips for precise data inspection
+
+---
+
+## 🛠️ Tech Stack
+
+> *(Adjust as needed)*
+
+* **Framework:** Next.js
+* **Charts:** Recharts
+* **Styling:** Tailwind CSS
+---
+
+## 📂 Project Structure
+
+```bash
+src/
+├── components/
+│   └── TimeDepthChart.tsx
+├── data/
+│   └── timeDepthData.ts
+├── pages/
+│   └── index.tsx
+```
+
+---
+
+## 🚀 Running the Project
+
+```bash
+pnpm install
+pnpm run dev
+```
+
+Open `http://localhost:3000` to view the plot.
+
+---
+
+## 📈 Interpretation
+
+* The **actual curve** lags behind the **planned curve**, indicating slower-than-expected progress.
+* Increasing divergence over time highlights cumulative delays.
+* This visualization helps stakeholders quickly assess performance risk.
+
+---
+
+## 🔄 Assumptions & Trade-offs
+
+* Data points are assumed to be accurate and sequential.
+* Interpolation between points is linear.
+* Static data is used to focus on visualization rather than data fetching.
+
+---
+
+## 🔮 Possible Enhancements
+
+* Highlight variance between planned and actual depth
+* Add annotations for major milestones
+* Support dynamic or real-time data
+* Allow zooming and panning for detailed inspection
+
+---
+
+## 👤 Author
+
+**Adebayo Akerele**
+Frontend Developer
+
